@@ -24,13 +24,13 @@ def is_permutation(a, b):
     list_of_permutations = []
     count = 0
 
-    for i in range(0, len(b)-3):
+    for i in range(0, len(b)-len(a)+1):
         if b[i] in a_set:
-            for j in range(i, i+4):
+            for j in range(i, i+len(a)):
                 # another way of getting the frequency of each char in a string into a dict
                 b_dict[b[j]] = b_dict.get(b[j], 0) + 1 
-            if b_dict == a_dict and b[i:i+4] not in list_of_permutations:
-                list_of_permutations.append(b[i:i+4])
+            if b_dict == a_dict and b[i:i+len(a)] not in list_of_permutations:
+                list_of_permutations.append(b[i:i+len(a)])
                 count += 1
 
             # reset b_dict

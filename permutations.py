@@ -25,10 +25,14 @@ def is_permutation(a, b):
     count = 0
 
     for i in range(0, len(b)-len(a)+1):
+        # checks if the letter is in a_dict, if not, skip it
         if b[i] in a_set:
+            # adds each letter and its frequency to b_dict
             for j in range(i, i+len(a)):
                 # another way of getting the frequency of each char in a string into a dict
                 b_dict[b[j]] = b_dict.get(b[j], 0) + 1 
+
+            # check if both dicts are equal and permutation is not repeated    
             if b_dict == a_dict and b[i:i+len(a)] not in list_of_permutations:
                 list_of_permutations.append(b[i:i+len(a)])
                 count += 1
